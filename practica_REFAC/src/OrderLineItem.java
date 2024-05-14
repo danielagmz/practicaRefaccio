@@ -12,4 +12,11 @@ public class OrderLineItem {
     public double getPrice() {
         return price * quantity;
     }
+
+    @Override
+    public String toString() {
+        return "productName: " + productName +
+                "\nquantity: " + quantity +
+                "\nprice: " + getPrice();
+    }
 }

@@ -1,7 +1,7 @@
 import java.util.List;
 // REFACT
 public class Order {
-    private List<OrderLineItem> lineItems;
+    private static List<OrderLineItem> lineItems;
     private double taxRate;
 
     public Order(List<OrderLineItem> lineItems, double taxRate) {
@@ -16,5 +16,22 @@ public class Order {
         }
         double tax = subtotal * taxRate;
         return subtotal + tax;
+    }
+
+    @Override
+    public String toString() {
+        return "-----------Order---------" +
+                "\n"+lineItemToString()+
+                "taxRate: " + taxRate+
+                "\nTotalPrice "+calculateTotalPrice();
+    }
+
+    private String lineItemToString(){
+        StringBuilder lineElem= new StringBuilder();
+
+        for (OrderLineItem lineItem : lineItems) {
+            lineElem.append(lineItem.toString()).append("\n");
+        }
+        return lineElem.toString();
     }
 }
