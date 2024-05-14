@@ -44,11 +44,11 @@ public class Main {
     }
     public static String max(int a, int b) {
         if(a > b) {
-            return String.valueOf(a + " es mas grande que " + b);
+            return a + " es mas grande que " + b;
         } else if (a == b) {
             return "Los dos numeros son iguales";
         } else {
-            return String.valueOf(b + " es mas grande que " + a);
+            return b + " es mas grande que " + a;
         }
     }
     public static void calcEquacioSegongrau(double a, double b, double c) {
