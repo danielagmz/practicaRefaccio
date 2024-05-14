@@ -1,3 +1,4 @@
+// refact -> extraccion de clase costumer para un uso futuro
 public class Costumer {
     private String firstName;
     private String lastName;

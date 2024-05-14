@@ -1,5 +1,5 @@
 import java.util.List;
-// REFACT
+// REFACT extraccion de clase
 public class Order {
     private static List<OrderLineItem> lineItems;
     private double taxRate;
@@ -17,7 +17,7 @@ public class Order {
         double tax = subtotal * taxRate;
         return subtotal + tax;
     }
-
+// refact -> toString() para mostrar los objetos que se creen de esta clase
     @Override
     public String toString() {
         return "-----------Order---------" +
@@ -25,7 +25,7 @@ public class Order {
                 "taxRate: " + taxRate+
                 "\nTotalPrice "+calculateTotalPrice();
     }
-
+// refact -> metodo para que se puedan mostrar los objetos del lineItem uno debajo del otro en la order
     private String lineItemToString(){
         StringBuilder lineElem= new StringBuilder();
 

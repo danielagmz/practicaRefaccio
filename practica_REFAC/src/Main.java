@@ -9,6 +9,7 @@ public class Main {
 
         int opcio;
         do {
+//            refact del menu para que sea mas claro
             System.out.println(
                     "___  ___                    \n" +
                             "|  \\/  |                    \n" +
@@ -21,12 +22,13 @@ public class Main {
             System.out.println("3. Crear una nueva orden");
 
             System.out.println("0. Acabar");
+//            refact -> puntero para saber que se tiene que escribir
             System.out.print("> ");
             opcio = scan.nextInt();
             scan.nextLine();
             switch (opcio) {
                 case 1:
-
+//                  refact -> mensajes mas descriptivos
                     System.out.print("introdueix el primer numero: ");
                     int num1 = scan.nextInt();
                     System.out.print("introdueix el segon numero: ");
@@ -41,7 +43,9 @@ public class Main {
                     calcEquacioSegongrau(a, b, c);
                     break;
                 case 3:
+//                   refact -> inicializar la collection vacia correctamente
                     List<OrderLineItem> lineItems = new ArrayList<>();
+//                    refact -> agregar utilidad a la lista
                     lineItems.add(new OrderLineItem("producto1",1,1));
                     Order orden1 = new Order(lineItems, 5.5);
                     System.out.println("Orden creada");
@@ -50,11 +54,13 @@ public class Main {
                 case 0:
                     break;
                 default:
+//                    refact -> valores actualizados porque las opciones son de 0 a 3
                     System.out.println("ATENCIÓ!!! \nHa de ser un valor entre 0 i 3");
             }
             System.out.println();
         } while (opcio != 0);
     }
+//    refact -> una funcion mas legible en el caso dos del switch
     public static String max(int a, int b) {
         if(a > b) {
             return a + " es mas grande que " + b;
@@ -81,11 +87,12 @@ public class Main {
             System.out.println("Equation has no roots");
         }
     }
-
+//    refact -> funcion reutilizable para hacer el codigo modular y mas legible en la funcion del calculo
     private static double CalcularIncognitas(double a,double b,double discriminante, String signo){
        if (signo.equals("-")){
            return (-b - Math.sqrt(discriminante)) / (2 * a);
        }
        return (-b + Math.sqrt(discriminante)) / (2 * a);
     }
+
 }

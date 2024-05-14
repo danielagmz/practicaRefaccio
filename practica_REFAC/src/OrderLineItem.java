@@ -1,4 +1,4 @@
-// REFACT
+// REFACT extraccion de clase
 public class OrderLineItem {
     private String productName;
     private int quantity;
@@ -13,6 +13,7 @@ public class OrderLineItem {
         return price * quantity;
     }
 
+//    refat -> metodo para mostrar los objetos de esta clase en la order
     @Override
     public String toString() {
         return "productName: " + productName +
