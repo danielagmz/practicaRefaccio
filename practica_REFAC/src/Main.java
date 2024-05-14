@@ -27,7 +27,6 @@ public class Main {
             switch (opcio) {
                 case 1:
 
-
                     System.out.print("introdueix el primer numero: ");
                     int num1 = scan.nextInt();
                     System.out.print("introdueix el segon numero: ");
@@ -69,7 +68,7 @@ public class Main {
         double Discriminante = b * b - 4 * a * c;
         if (Discriminante > 0) {
             double x1, x2;
-            x1 = CalcularIncognitas(a,c,Discriminante,"-");
+            x1 = CalcularIncognitas(a,b,Discriminante,"-");
             x2 = CalcularIncognitas(a,b,Discriminante,"+");
             System.out.println("x1 = " + x1 + ", x2 = " + x2);
         }
