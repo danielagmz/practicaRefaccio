@@ -12,22 +12,18 @@ public class Main {
             System.out.println("1. ");
             System.out.println("2. ");
             System.out.println("3. ");
-            System.out.println("4. ");
-            System.out.println("5. ");
             System.out.println("0. Acabar");
 
             opcio = scan.nextInt();
             scan.nextLine();
             switch (opcio) {
                 case 1:
-                    System.out.println("intro: ");
+                    System.out.print("intro: ");
                     int num1 = scan.nextInt();
-                    System.out.println("intro: ");
+                    System.out.print("intro: ");
                     int num2 = scan.nextInt();
-                    if (max(num1,num2)) {
-                        System.out.println("aaa");
-                    }
-                    else System.out.println("bbb");
+                    scan.nextLine();
+                    System.out.println(max(num1,num2));
                     break;
                 case 2:
                     double a=2;
@@ -42,28 +38,28 @@ public class Main {
                 case 0:
                     break;
                 default:
-                    System.out.println("ATENCIÓ!!! \nHa de ser un valor entre 0 i 5");
+                    System.out.println("ATENCIÓ!!! \nHa de ser un valor entre 0 i 3");
             }
         } while (opcio != 0);
     }
-    public static boolean max(int a, int b) {
+    public static String max(int a, int b) {
         if(a > b) {
-            return true;
+            return String.valueOf(a + " es mas grande que " + b);
         } else if (a == b) {
-            return false;
+            return "Los dos numeros son iguales";
         } else {
-            return false;
+            return String.valueOf(b + " es mas grande que " + a);
         }
     }
     public static void calcEquacioSegongrau(double a, double b, double c) {
-        double D = b * b - 4 * a * c;
-        if (D > 0) {
+        double Discriminante = b * b - 4 * a * c;
+        if (Discriminante > 0) {
             double x1, x2;
-            x1 = (-b - Math.sqrt(D)) / (2 * a);
-            x2 = (-b + Math.sqrt(D)) / (2 * a);
+            x1 = CalcularIncognitas(a,c,Discriminante,"-");
+            x2 = CalcularIncognitas(a,b,Discriminante,"+");
             System.out.println("x1 = " + x1 + ", x2 = " + x2);
         }
-        else if (D == 0) {
+        else if (Discriminante == 0) {
             double x;
             x = -b / (2 * a);
             System.out.println("x = " + x);
@@ -71,5 +67,12 @@ public class Main {
         else {
             System.out.println("Equation has no roots");
         }
+    }
+
+    private static double CalcularIncognitas(double a,double b,double discriminante, String signo){
+       if (signo.equals("-")){
+           return (-b - Math.sqrt(discriminante)) / (2 * a);
+       }
+       return (-b + Math.sqrt(discriminante)) / (2 * a);
     }
 }
